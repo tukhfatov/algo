@@ -4,9 +4,27 @@ namespace ChatRoom
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string s = Console.ReadLine();
+
+            bool result = false;
+            string word = "hello";
+            int start = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == word[start])
+                {
+                    start += 1;
+                }
+                if (start == word.Length)
+                {
+                    result = true;
+                    break;
+                }
+
+            }
+            Console.WriteLine(result ? "YES" : "NO");
         }
     }
 }

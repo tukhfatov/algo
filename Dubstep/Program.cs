@@ -6,7 +6,11 @@ namespace Dubstep
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string word = Console.ReadLine();
+
+            string[] result = word.Split(new[] { "WUB" }, StringSplitOptions.RemoveEmptyEntries);
+
+            Console.WriteLine(string.Join(" ", result));
         }
     }
 }
