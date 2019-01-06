@@ -13,34 +13,37 @@ namespace Marks
             int m = int.Parse(input[1]);
 
             string [] marks = new string[n];
+            int [] subjects = new int[m];
+
+            int [] students = new int[n];
 
             for (int i=0; i<n; i++){
-                marks[i] = Console.ReadLine();
+                string inp = Console.ReadLine();
+                marks[i] = inp;
+                students[i] = 0;
+                for(int j=0; j<m; j++){
+                    subjects[j] = Math.Max(subjects[j], int.Parse(inp[j].ToString()));                    
+                }
+            }
+        
+            for (int i = 0; i < n; i++)
+            {
+                string mark = marks[i];
+                for (int j = 0; j < m; j++)
+                {
+                    if (subjects[j] == int.Parse(mark[j].ToString())){
+                        students[i] = 1;
+                        break;
+                    }                    
+                }
             }
 
-            var studentIndex = new List<int>();
-            var isSame = false;
-            for(int i=0; i<m; i++){
-                var max = int.MinValue;
-                var min = int.MaxValue;
-                var tmp = new List<int>();
-                for(int j=0; j<n; j++){
-                    var mark = int.Parse(marks[j][i].ToString());
-                    tmp.Add(mark);
-                    max = Math.Max(mark, max);
-                    min = Math.Min(mark, min);
-                }
-                if (studentIndex.IndexOf(tmp.IndexOf(max)+1) == -1){
-                    studentIndex.Add(tmp.IndexOf(max)+1);
-                }
-
-                if (max - min == 0){   
-                    isSame = true;                
-                    break;
-                }                
+            int count = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (students[i] == 1) count++;
             }
-
-            Console.WriteLine(isSame ? n : studentIndex.Count);
+            Console.WriteLine(count);
         }
     }
 }
