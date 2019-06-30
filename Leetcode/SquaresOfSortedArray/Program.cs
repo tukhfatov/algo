@@ -4,7 +4,17 @@ namespace SquaresOfSortedArray {
     class Program {
         static void Main (string[] args) {
             int[] inp = new int[] {-4, -1, 0, 3, 10 };
+            var resultWithSort = SortedSquaresFirstSolution (inp);
             var result = SortedSquares (inp);
+        }
+
+        public static int[] SortedSquaresFirstSolution (int[] A) {
+            for (var i = 0; i < A.Length; i++) {
+                A[i] *= A[i];
+            }
+            Array.Sort (A);
+            Console.WriteLine (string.Join (" ", A));
+            return A;
         }
 
         public static int[] SortedSquares (int[] A) {
