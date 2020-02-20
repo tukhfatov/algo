@@ -18,9 +18,9 @@ namespace _572_SubtreeOfAnotherTree {
                 val = 4,
                 left = new TreeNode {
                 val = 1,
-                left = new TreeNode {
-                val = 0
-                }
+                // left = new TreeNode {
+                // val = 0
+                // }
                 },
                 right = new TreeNode {
                 val = 2
@@ -43,6 +43,17 @@ namespace _572_SubtreeOfAnotherTree {
 
             Console.WriteLine (IsSubtree (s, t));
         }
+
+        public static bool IsEquals (TreeNode s, TreeNode t) {
+            if (s == null && t == null) return true;
+            if (s != null && t != null) {
+                if (s.val == t.val) {
+                    return IsEquals (s.left, t.left) && IsEquals (s.right, t.right);
+                }
+            }
+            return false;
+        }
+
         public static bool Sub (TreeNode s, TreeNode t) {
             Queue<TreeNode> q = new Queue<TreeNode> ();
             Queue<TreeNode> subQ = new Queue<TreeNode> ();
@@ -85,7 +96,8 @@ namespace _572_SubtreeOfAnotherTree {
             while (q.Count != 0) {
                 TreeNode tmp = q.Dequeue ();
                 if (tmp.val == t.val) {
-                    isSubFound = Sub (tmp, t);
+                    // isSubFound = Sub (tmp, t);
+                    isSubFound = IsEquals (tmp, t);
                 }
 
                 if (isSubFound) {
