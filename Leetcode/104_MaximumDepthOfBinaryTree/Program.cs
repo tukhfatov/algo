@@ -33,7 +33,7 @@ namespace _104_MaximumDepthOfBinaryTree {
                 }
             };
 
-            Console.WriteLine (MinDepth (root));
+            Console.WriteLine (MaxDepth (root));
         }
 
         public static int MaxDepth (TreeNode root) {
