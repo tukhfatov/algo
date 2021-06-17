@@ -1,8 +1,11 @@
 ﻿using System;
 
-namespace _888_FairCandySwap {
-    class Program {
-        static void Main (string[] args) {
+namespace _888_FairCandySwap
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
             int[] A = new int[] {
                 1,
@@ -14,9 +17,9 @@ namespace _888_FairCandySwap {
                 2
             };
 
-            int[] result = FairCandySwap (A, B);
-            Console.WriteLine (result[0]);
-            Console.WriteLine (result[1]);
+            int[] result = FairCandySwap(A, B);
+            Console.WriteLine(result[0]);
+            Console.WriteLine(result[1]);
 
             A = new int[] {
                 2
@@ -27,9 +30,9 @@ namespace _888_FairCandySwap {
                 3
             };
 
-            result = FairCandySwap (A, B);
-            Console.WriteLine (result[0]);
-            Console.WriteLine (result[1]);
+            result = FairCandySwap(A, B);
+            Console.WriteLine(result[0]);
+            Console.WriteLine(result[1]);
 
             A = new int[] {
                 1,
@@ -42,9 +45,9 @@ namespace _888_FairCandySwap {
                 4
             };
 
-            result = FairCandySwap (A, B);
-            Console.WriteLine (result[0]);
-            Console.WriteLine (result[1]);
+            result = FairCandySwap(A, B);
+            Console.WriteLine(result[0]);
+            Console.WriteLine(result[1]);
 
             A = new int[] {
                 35,
@@ -59,35 +62,43 @@ namespace _888_FairCandySwap {
                 21
             };
 
-            result = FairCandySwap (A, B);
-            Console.WriteLine (result[0]);
-            Console.WriteLine (result[1]);
+            result = FairCandySwap(A, B);
+            Console.WriteLine(result[0]);
+            Console.WriteLine(result[1]);
 
         }
 
-        public static int[] FairCandySwap (int[] A, int[] B) {
+        public static int[] FairCandySwap(int[] A, int[] B)
+        {
             int[] result = new int[2];
 
             int sumA = 0;
-            for (int i = 0; i < A.Length; i++) {
+            for (int i = 0; i < A.Length; i++)
+            {
                 sumA += A[i];
             }
             int sumB = 0;
-            for (int j = 0; j < B.Length; j++) {
+            for (int j = 0; j < B.Length; j++)
+            {
                 sumB += B[j];
             }
 
             int iA = 0;
             int iB = 0;
-            while (true) {
+            while (true)
+            {
                 int curA = A[iA];
                 int curB = B[iB];
-                if ((sumA - curA + curB) == (sumB - curB + curA)) {
+                if ((sumA - curA + curB) == (sumB - curB + curA))
+                {
                     return new int[] { curA, curB };
                 }
-                if (iA < A.Length - 1) {
+                if (iA < A.Length - 1)
+                {
                     iA++;
-                } else {
+                }
+                else
+                {
                     iB++;
                     iA = 0;
                 }

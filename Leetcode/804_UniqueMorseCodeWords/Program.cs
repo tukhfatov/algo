@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace _804_UniqueMorseCodeWords {
-    class Program {
-        static void Main (string[] args) {
-            Console.WriteLine ("Hello World!");
+namespace _804_UniqueMorseCodeWords
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
         }
 
-        public static int UniqueMorseRepresentations (string[] words) {
+        public static int UniqueMorseRepresentations(string[] words)
+        {
             string[] morse = new string[] {
                 ".-",
                 "-...",
@@ -36,15 +42,17 @@ namespace _804_UniqueMorseCodeWords {
                 "--.."
             };
 
-            HashSet<string> s = new HashSet<string> ();
+            HashSet<string> s = new HashSet<string>();
 
-            foreach (string word in words) {
-                StringBuilder t = new StringBuilder ();
-                foreach (char sym in word) {
-                    t.Append (morse[sym - 'a']);
+            foreach (string word in words)
+            {
+                StringBuilder t = new StringBuilder();
+                foreach (char sym in word)
+                {
+                    t.Append(morse[sym - 'a']);
                 }
 
-                s.Add (t.ToString ());
+                s.Add(t.ToString());
             }
 
             return s.Count;
