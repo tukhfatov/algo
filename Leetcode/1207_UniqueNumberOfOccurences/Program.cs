@@ -27,20 +27,10 @@ namespace _1207_UniqueNumberOfOccurences
                     a[i] = 1;
                 }
             }
-            int[] b = new int[1000];
-            foreach (KeyValuePair<int, int> i in a)
-            {
-                if (b[i.Value] > 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    b[i.Value] = i.Value;
-                }
-            }
 
-            return true;
+            HashSet<int> s = new HashSet<int>(a.Values);
+
+            return s.Count == a.Count;
         }
     }
 }
