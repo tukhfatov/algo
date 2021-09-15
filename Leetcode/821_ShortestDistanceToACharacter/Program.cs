@@ -7,8 +7,8 @@ namespace _821_ShortestDistanceToACharacter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string.Join(" ", ShortestToChar("loveleetcode", 'e')));
-            Console.WriteLine(string.Join(" ", ShortestToChar("aaab", 'b')));
+            Console.WriteLine(string.Join(" ", ShortestToCharNTime("loveleetcode", 'e')));
+            Console.WriteLine(string.Join(" ", ShortestToCharNTime("aaab", 'b')));
         }
 
         public static int[] ShortestToChar(string s, char c)
@@ -44,6 +44,33 @@ namespace _821_ShortestDistanceToACharacter
             }
 
             return r;
+        }
+
+        public static int[] ShortestToCharNTime(string s, char c)
+        {
+            int[] res = new int[s.Length];
+
+            int prev = Int32.MinValue / 2;
+            for (int i = 0; i < res.Length; i++)
+            {
+                if (s[i] == c)
+                {
+                    prev = i;
+                }
+                res[i] = i - prev;
+            }
+
+            prev = Int32.MinValue / 2;
+            for (int i = res.Length - 1; i >= 0; i--)
+            {
+                if (s[i] == c)
+                {
+                    prev = i;
+                }
+                res[i] = Math.Min(res[i], Math.Abs(i - prev));
+            }
+
+            return res;
         }
     }
 }
