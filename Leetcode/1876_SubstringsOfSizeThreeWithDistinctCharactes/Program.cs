@@ -10,6 +10,8 @@ namespace _1876_SubstringsOfSizeThreeWithDistinctCharactes
             Console.WriteLine(CountGoodSubstrings("aababcabc"));
         }
 
+
+        // Sliding window
         public static int CountGoodSubstrings(string s)
         {
             int total = 0;
